@@ -39,6 +39,11 @@ streamlit run app.py
 📈 Hasil Analisis
 Dashboard ini membantu mengidentifikasi bahwa efisiensi budget dapat ditingkatkan dengan memfokuskan investasi pada tier influencer tertentu yang memiliki korelasi harga paling masuk akal terhadap potensi jangkauan pasar.
 
+🌐 Deployment
+Aplikasi ini telah di-deploy dan dapat diakses secara publik melalui tautan berikut:
+
+👉 https://capstone-project-data-science---cc26-psu142-pwqyedrdtfocbu2mxl.streamlit.app/
+
 Dibuat oleh: [M NAFIS FAKHRUDIN & Jibran Tsaqif]
 
 Project: Coding Camp powered by DBS Foundation 2026
