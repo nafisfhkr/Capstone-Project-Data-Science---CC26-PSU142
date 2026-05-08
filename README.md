@@ -1,19 +1,6 @@
-fluensy-budget-optimizer/
-├── app.py                     # File utama dashboard Streamlit
-├── requirements.txt           # Daftar library (pandas, streamlit, plotly, dll)
-├── kol_data_clean.csv         # Dataset hasil cleaning dari notebook
-├── README.md                  # Dokumentasi utama proyek
-├── notebooks/                 # Folder untuk menyimpan file riset
-│   └── Data_Science_Capstone.ipynb
-└── assets/                    # (Opsional) Untuk gambar logo atau screenshot
-    └── fluensy_logo.png
-2. Kode README.md (Optimasi Anggaran & ROI)
-Gunakan kode di bawah ini untuk file README.md Anda. Dokumentasi ini menonjolkan nilai strategis proyek dalam membantu pengambilan keputusan berbasis data bagi UMKM.
+# 🚀  Smart Influencer Budget Optimization
 
-Markdown
-# 🚀 Fluensy: Smart Influencer Budget Optimization
-
-**Fluensy** adalah platform analisis berbasis data yang dirancang khusus untuk membantu UMKM mengatasi kesulitan dalam memilih influencer yang relevan serta mengalokasikan anggaran kampanye secara optimal guna memaksimalkan *Return on Investment* (ROI).
+Platform analisis berbasis data yang dirancang khusus untuk membantu UMKM mengatasi kesulitan dalam memilih influencer yang relevan serta mengalokasikan anggaran kampanye secara optimal guna memaksimalkan *Return on Investment* (ROI).
 
 ## 📌 Latar Belakang
 Banyak pelaku UMKM mengalami pemborosan biaya dalam *influencer marketing* karena pemilihan yang masih dilakukan secara manual tanpa tools pendukung keputusan. Proyek ini hadir sebagai solusi untuk mencocokkan influencer dengan budget yang tersedia secara lebih presisi.
