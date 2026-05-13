@@ -25,7 +25,8 @@ except:
     st.error("File 'kol_data_final.csv' tidak ditemukan. Pastikan Anda sudah mengunggahnya.")
     st.stop()
 
-# Menambahkan Logo TikTok dan Instagram di Sidebar
+
+# Menambahkan Logo TikTok dan Instagram (Gambar Asli) Diletakkan di atas Title
 logo_tiktok = "https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg"
 logo_ig = "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
 
@@ -50,6 +51,9 @@ menu = st.sidebar.selectbox("Pilih Menu:",
 if menu == "Ringkasan Data":
     st.title("📊 Ringkasan Ekosistem Influencer")
     
+    # ---------------------------------------------------------
+    # INI ADALAH FUNGSI SIMPEL UNTUK MEMBUAT KOTAK WARNA-WARNI
+    # ---------------------------------------------------------
     def buat_kartu(judul, nilai, warna_bg, warna_teks):
         st.markdown(f"""
         <div style="background-color: {warna_bg}; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
@@ -58,23 +62,22 @@ if menu == "Ringkasan Data":
         </div>
         """, unsafe_allow_html=True)
 
+    # Metrik Utama memanggil fungsi di atas
     m1, m2, m3, m4 = st.columns(4)
     
     with m1:
-        buat_kartu("Total Influencer", len(df), "#E8F0FE", "#1967D2")
+        buat_kartu("Total Influencer", len(df), "#E8F0FE", "#1967D2")  # Tema Biru
     with m2:
-        buat_kartu("Total Kategori", df['kategori'].nunique(), "#E6F4EA", "#137333")
+        buat_kartu("Total Kategori", df['kategori'].nunique(), "#E6F4EA", "#137333")  # Tema Hijau
     with m3:
-        # Menggunakan kolom base_rate dari data final
-        buat_kartu("Rata-rata Base Rate", f"Rp {df['base_rate'].mean():,.0f}", "#FEF7E0", "#B06000")
+        buat_kartu("Rata-rata Base Rate", f"Rp {df['base_rate'].mean():,.0f}", "#FEF7E0", "#B06000")  # Tema Oranye
     with m4:
-        # Tier terbanyak sekarang akan mencakup 5 tier (Nano-Mega)
-        buat_kartu("Tier Terbanyak", df['tier'].mode()[0], "#F3E8FD", "#7627BB")
+        buat_kartu("Tier Terbanyak", df['tier'].mode()[0], "#F3E8FD", "#7627BB")  # Tema Ungu
+    # ---------------------------------------------------------
 
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.subheader("Cuplikan Data Influencer (Final Cleaned)")
-    # Menampilkan efficiency_score juga
-    st.dataframe(df[['nama_influencer', 'kategori', 'tier', 'base_rate', 'efficiency_score']].head(20), use_container_width=True)
+    st.markdown("<br>", unsafe_allow_html=True) # Memberi jarak sebelum tabel
+    st.subheader("Cuplikan Data Influencer")
+    st.dataframe(df.head(20), use_container_width=True)
 
 elif menu == "Distribusi Kategori & Tier":
     st.title("🏗️ Distribusi Influencer")
@@ -105,7 +108,13 @@ elif menu == "Distribusi Kategori & Tier":
         color_continuous_scale='YlOrRd',
         height=500    
     )
-    fig_heat.update_layout(font=dict(size=14), margin=dict(l=0, r=0, t=20, b=0))
+    
+    # Memperbesar ukuran font agar angka lebih jelas terbaca
+    fig_heat.update_layout(
+        font=dict(size=14),
+        margin=dict(l=0, r=0, t=20, b=0)
+    )
+    
     st.plotly_chart(fig_heat, use_container_width=True)
 
 elif menu == "Analisis Harga (Rates)":
@@ -124,12 +133,18 @@ elif menu == "Analisis Harga (Rates)":
     fig_corr = px.imshow(
         corr, 
         text_auto=".2f", 
-        aspect="auto", 
+        aspect="700", # Memaksa grafik mengisi lebar layar
         color_continuous_scale='RdBu_r', 
         range_color=[-1,1],
-        height=600
+        height=650     # Memperbesar ukuran vertikal grafik
     )
-    fig_corr.update_layout(font=dict(size=14))
+    
+    # Memperbesar ukuran teks di dalam dan di sumbu grafik agar proporsional
+    fig_corr.update_layout(
+        font=dict(size=14),
+        margin=dict(l=0, r=0, t=20, b=0)
+    )
+    
     st.plotly_chart(fig_corr, use_container_width=True)
 
 # --- MENU BARU: A/B TESTING ---
