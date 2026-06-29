@@ -47,6 +47,20 @@ st.sidebar.markdown("Smart Influencer Matching Platform")
 menu = st.sidebar.selectbox("Pilih Menu:", 
     ["Ringkasan Data", "Distribusi Kategori & Tier", "Analisis Harga (Rates)", "Validasi A/B Testing", "Katalog Influencer", "Kesimpulan"])
 
+# --- PENAMBAHAN FOOTER SIDEBAR ---
+st.sidebar.markdown("---") # Memberikan garis pemisah
+st.sidebar.markdown(
+    """
+    <div style="font-size: 13px; color: #6c757d;">
+        <b>Dibuat oleh:</b><br>
+        M NAFIS FAKHRUDIN & Jibran Tsaqif<br><br>
+        <b>Project:</b><br>
+        Coding Camp powered by DBS Foundation 2026
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 
 if menu == "Ringkasan Data":
     st.title("📊 Ringkasan Ekosistem Influencer")
